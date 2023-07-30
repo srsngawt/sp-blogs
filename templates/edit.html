@@ -1,0 +1,64 @@
+{% extends "layout.html" %}
+{% block body %}        
+        <!-- Page Header-->
+        <header class="masthead" style="background-image: url('  {{ url_for('static', filename='assets/img/home-bg.jpg') }} ' )"> 
+            <!-- see above -->
+            <div class="container position-relative px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <div class="site-heading">
+                            <h1>Admin Panel </h1>
+                            <span class="subheading">Manage your post and change them.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Main Content-->
+        <div class="container px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-md-10 col-lg-8 col-xl-7">
+                    <p>Welcome, You are logged in here {{params['admin_id']}}</p>
+                    <h2>Basic Operations</h2>
+                    <a href="/dashboard"><button class="btn btn-primary">Dashboard</button></a>
+                    <a href="/logout"><button class="btn btn-primary">Logout</button></a>
+                    <hr>
+                    <h2>Add/Edit Posts</h2>
+                    {% if post == None: %}
+                    {% set faction = "/edit/0" %}
+                    {% else: %}
+                    {% set faction = "/edit/" + post.sno|string %}
+                    {% endif %}
+                    <form id="contactForm" data-sb-form-api-token="API_TOKEN" action={{faction}} method="POST" >
+                        <div class="form-floating">
+                            <input class="form-control" value="{{post.title}}" name="title" id="name" type="text" placeholder="Title" data-sb-validations="required" />
+                            <label for="title">Title</label>
+                            <div class="invalid-feedback" data-sb-feedback="title:required">A title is required.</div>
+                        </div>
+                        <div class="form-floating">
+                            <input class="form-control" id="slug" value="{{post.slug}}" name="slug" type="text" placeholder="Slug" data-sb-validations="required" />
+                            <label for="slug">Slug</label>
+                            <div class="invalid-feedback" data-sb-feedback="slug:required">A slug is required.</div>
+                        </div>
+                        <div class="form-floating">
+                            <textarea class="form-control" name="content" id="message" value="" placeholder="Content..." style="height: 12rem" data-sb-validations="required">{{post.content}}</textarea>
+                            <label for="content">Content</label>
+                            <div class="invalid-feedback" data-sb-feedback="content:required">A content is required.</div>
+                        </div>
+                        <div class="form-floating">
+                            <input class="form-control" id="phone" name="img_file" type="text" value="{{post.img_file}}" placeholder="Image Name" data-sb-validations="required" />
+                            <label for="img_file">Image File</label>
+                            <div class="invalid-feedback" data-sb-feedback="img_file:required">A image name is required.</div>
+                        </div>
+                        <br />
+                        <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error sending message!</div></div>
+                        <!-- Submit Button-->
+                        <button type="submit" class="btn btn-primary text-uppercase" id="submitButton">Submit</button>
+                        <br>
+                        <br>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- Footer-->
+{% endblock %}

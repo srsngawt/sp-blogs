@@ -1,0 +1,18 @@
+{
+    "params":
+    {
+        "local_server":"True",
+        "local_url":"mysql://root:@localhost/thunderclap",
+        "prod_url":"http://185.27.134.10/db_export.php?db=if0_34718626_spblog",
+        "fb_url":"https://www.instagram.com/shubhamr1415/?next=%2F",
+        "tw_url":"https://twitter.com/_rajput_145_",
+        "gh_url":"https://github.com/srsngawt",
+        "post_name":"Shubham Post's",
+        "blog_name":"Shubham Blog's",
+        "gmail-user":"shubhamr1414@gmail.com",
+        "gmail-pass":"tvfvmedocnkiqczv",
+        "no_of_post":3,
+        "admin_id":"AdminSP",
+        "admin_pass":"thestelllar"
+    }
+}

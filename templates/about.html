@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+{% block body %} 
+        <!-- Page Header-->
+        <header class="masthead" style="background-image: url(' {{ url_for('static', filename='assets/img/about-bg.jpg') }} ')">
+            <div class="container position-relative px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <div class="page-heading">
+                            <h1>About Me</h1>
+                            <span class="subheading">This is what I am.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Main Content-->
+        <main class="mb-4">
+            <div class="container px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <p>Hi  <img src="https://raw.githubusercontent.com/iampavangandhi/iampavangandhi/master/gifs/Hi.gif" width="30px">,  I am Shubham</p>
+                        <p>I have completed my graduation (B.Tech) in Information Technology from NIT Kurukshetra. I have experience in working with Udaan as an intern in the role of an analyst, where I was responsible for the successful migration of the LM DoD Tracker Dashboard, Cost Optimization, Python Auto Mailer, formulation of Buyer Plans, Code Optimization, and Routing Simulation. I will be joining Amazon as a Software Development Engineer in 2024.</p>
+                        <p>Apart from this, I like poetry, listening to songs, drawing sketches, running, exercising, watching podcasts & World Affairs videos, and reading books. I also love to know about history and human evolution.</p>
+                        <p>And further search is going on. Sure, if I come to know something, I will add it here.</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <!-- Footer-->
+{% endblock %}

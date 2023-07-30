@@ -1,0 +1,56 @@
+{% extends "layout.html" %}
+{% block body %}        
+        <!-- Page Header-->
+        <header class="masthead" style="background-image: url('  {{ url_for('static', filename='assets/img/home-bg.jpg') }} ' )"> 
+            <!-- see above -->
+            <div class="container position-relative px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <div class="site-heading">
+                            <h1>{{params['post_name']}}</h1>
+                            <span class="subheading">A Page liked by Programmer.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Main Content-->
+        <div class="container px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-md-10 col-lg-8 col-xl-7">
+                    <!-- Post preview-->
+                    {{ x  }} 
+                    <!-- to fetch the post we need to use for loop here for 4 items at a time. -->
+                    {% for post in posts %}
+                        <div class="post-preview">
+                            {% set url = '/post/' + post.slug %}
+                            <a href="post/{{post.slug}}">
+                                <h2 class="post-title">{{post.title}}</h2>
+                                <h3 class="post-subtitle">Hope you like it</h3>
+                            </a>
+                            <p class="post-meta">
+                                Posted by
+                                <a href="#!">Admin Shubham</a>
+                                on {{post.date}}
+                            </p>
+                            <p>{{post.content[0:140] | safe}}...</p>
+                        </div>
+                        <hr class="my-4" />
+                    {% endfor %}
+                    <!-- Divider-->
+                    <!-- <hr class="my-4" /> -->
+
+
+                     <!-- Divider-->
+                    <!-- <hr class="my-4" /> -->
+                    <!-- Pager-->
+                    <div class=" justify-content-end mb-4">
+                        
+                        <a class="btn btn-primary text-uppercase left" href="{{prev}}">&larr; Previous</a>
+                        <a class="btn btn-primary text-uppercase float-sm-end float-md-end float-lg-end float-xl-end float-xxl-end float-end" href="{{next}}">Next &rarr;</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Footer-->
+{% endblock %}
